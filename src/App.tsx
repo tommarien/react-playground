@@ -5,7 +5,9 @@ import Alert from './components/Alerts/Alert';
 function App(): JSX.Element {
   return (
     <div>
-      <Alert variant="info">Welcome to our app!</Alert>
+      <Alert heading="Well done" variant="info">
+        You made it!
+      </Alert>
     </div>
   );
 }

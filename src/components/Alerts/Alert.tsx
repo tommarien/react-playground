@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
-import classNames from 'classnames';
 
 export type AlertProps = {
   children: ReactNode;
+  heading?: string;
   variant:
     | 'primary'
     | 'secondary'
@@ -14,14 +14,12 @@ export type AlertProps = {
     | 'dark';
 };
 
-const BS_PREFIX = 'alert';
+const BS_ROOT = 'alert';
 
-function Alert({ children, variant }: AlertProps): JSX.Element {
+function Alert({ children, variant, heading }: AlertProps): JSX.Element {
   return (
-    <div
-      role="alert"
-      className={classNames(BS_PREFIX, `${BS_PREFIX}-${variant}`)}
-    >
+    <div role="alert" className={`${BS_ROOT} ${BS_ROOT}-${variant}`}>
+      {heading && <h4 className={`${BS_ROOT}-heading`}>{heading}</h4>}
       {children}
     </div>
   );
