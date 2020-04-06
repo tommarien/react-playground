@@ -28,8 +28,7 @@ function Alert({
 
   return (
     <div
-      className={classNames(BS_ROOT, {
-        [`${BS_ROOT}-${variant}`]: true,
+      className={classNames(BS_ROOT, `${BS_ROOT}-${variant}`, {
         [`${BS_ROOT}-dismissible`]: dismissible,
       })}
       style={{ display: dismissed ? 'none' : undefined }}
