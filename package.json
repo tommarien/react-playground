@@ -21,6 +21,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "core-js": "^3.6.5",
     "css-loader": "^3.5.2",
+    "cz-conventional-changelog": "3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^7.2.1",
     "eslint-config-prettier": "^6.10.1",
@@ -52,6 +53,7 @@
     "build": "webpack --mode development",
     "build:prod": "webpack --mode production",
     "clean": "rimraf dist",
+    "commit": "git-cz",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
     "lint:types": "tsc --noEmit --pretty",
     "serve": "webpack-dev-server --open",
@@ -69,7 +71,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsc --noEmit && lint-staged"
+      "pre-commit": "tsc --noEmit && lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "lint-staged": {
@@ -92,5 +95,10 @@
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
