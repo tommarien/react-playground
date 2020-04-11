@@ -19,7 +19,7 @@ describe('Alert', () => {
     );
   }
 
-  test('it renders the alert', () => {
+  test('it renders by default', () => {
     const { container } = render({
       variant: 'secondary',
       children: <div data-testid="child" />,
@@ -36,24 +36,32 @@ describe('Alert', () => {
 
     within(alert).getByTestId('child');
 
-    const heading = within(alert).queryByRole('heading');
-    expect(heading).not.toBeInTheDocument();
-
-    const dismissButton = within(alert).queryByRole('heading');
+    const dismissButton = within(alert).queryByRole('button');
     expect(dismissButton).not.toBeInTheDocument();
   });
 
-  test('it renders the heading if given', () => {
-    const heading = 'Well Done!';
+  describe('heading', () => {
+    test('it renders the alert with the header if supplied', () => {
+      const heading = 'Well Done!';
 
-    render({ heading });
+      render({ heading });
 
-    const alert = screen.getByRole('alert');
+      const alert = screen.getByRole('alert');
 
-    const header = within(alert).getByRole('heading');
-    expect(header).toHaveProperty('tagName', 'H4');
-    expect(header).toHaveClass('alert-heading');
-    expect(header).toHaveTextContent(heading);
+      const header = within(alert).getByRole('heading');
+      expect(header).toHaveProperty('tagName', 'H4');
+      expect(header).toHaveClass('alert-heading');
+      expect(header).toHaveTextContent(heading);
+    });
+
+    test('guard it does not render a heading if not supplied', () => {
+      render();
+
+      const alert = screen.getByRole('alert');
+
+      const heading = within(alert).queryByRole('heading');
+      expect(heading).not.toBeInTheDocument();
+    });
   });
 
   test('it can render dismissible', () => {
