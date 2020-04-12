@@ -10,7 +10,14 @@ function App(): JSX.Element {
         <strong>Holy guacamole!</strong> You should check in on some of those
         fields below.
       </Alert>
-      <Button type="button">Push me</Button>
+      <Button
+        type="button"
+        variant="danger"
+        // eslint-disable-next-line no-alert
+        onClick={() => alert('You pushed')}
+      >
+        Push me
+      </Button>
     </>
   );
 }
