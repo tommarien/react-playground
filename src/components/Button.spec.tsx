@@ -11,9 +11,15 @@ describe('Button', () => {
     type = 'submit',
     variant = 'primary',
     onClick = undefined,
+    disabled = undefined,
   }: Partial<ButtonProps> = {}): RenderResult {
     return renderRtl(
-      <Button onClick={onClick} type={type} variant={variant}>
+      <Button
+        disabled={disabled}
+        onClick={onClick}
+        type={type}
+        variant={variant}
+      >
         Push me
       </Button>
     );
@@ -83,5 +89,25 @@ describe('Button', () => {
     fireEvent.click(button);
 
     expect(event).toEqual(expect.objectContaining({ type: 'click' }));
+  });
+
+  describe('disabled', () => {
+    test('it can render as disabled', () => {
+      const { getByRole } = render({ disabled: true });
+
+      const button = getByRole('button');
+
+      expect(button).toBeDisabled();
+      expect(button).toHaveStyle({ cursor: 'not-allowed' });
+    });
+
+    test('guard it does not render disabled if not supplied', () => {
+      const { getByRole } = render();
+
+      const button = getByRole('button');
+
+      expect(button).toBeEnabled();
+      expect(button).not.toHaveStyle({ cursor: 'not-allowed' });
+    });
   });
 });
