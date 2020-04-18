@@ -73,8 +73,8 @@ describe('Alert', () => {
       const alert = getByRole('alert');
       expect(alert).toHaveClass('alert-dismissible');
 
-      const button = within(alert).getByRole('button');
-      expect(button).toHaveAttribute('aria-label', 'Close');
+      const button = within(alert).getByLabelText('Close');
+      expect(button).toHaveProperty('tagName', 'BUTTON');
       expect(button).toHaveClass('close');
       expect(button).toHaveTextContent(/\u00D7/);
 
