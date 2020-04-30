@@ -16,7 +16,7 @@ export type ButtonProps = Pick<
 
 const BS_ROOT = 'btn';
 
-function Button(props: ButtonProps): JSX.Element | null {
+function Button(props: ButtonProps): JSX.Element {
   const { children, disabled, onClick, type, variant } = props;
 
   return (
