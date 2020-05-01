@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
 import classNames from 'classnames';
-import { BSVariant } from './constants';
+import { Variant } from './Bootstrap';
 
 export type ButtonProps = Pick<
   React.DetailedHTMLProps<
@@ -11,7 +11,7 @@ export type ButtonProps = Pick<
   'onClick' | 'disabled' | 'children'
 > & {
   type: 'button' | 'submit' | 'reset';
-  variant: BSVariant | 'link';
+  variant: Variant | 'link';
 };
 
 const BS_ROOT = 'btn';

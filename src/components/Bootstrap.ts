@@ -1,4 +1,4 @@
-export type BSVariant =
+export type Variant =
   | 'primary'
   | 'secondary'
   | 'success'

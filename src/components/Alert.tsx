@@ -1,12 +1,12 @@
 import React, { ReactNode, useState } from 'react';
 import classNames from 'classnames';
-import { BSVariant } from './constants';
+import { Variant } from './Bootstrap';
 
 export type AlertProps = {
   children: ReactNode;
   dismissible?: boolean;
   heading?: string;
-  variant: BSVariant;
+  variant: Variant;
 };
 
 const BS_ROOT = 'alert';
