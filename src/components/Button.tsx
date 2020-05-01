@@ -22,7 +22,6 @@ function Button(props: ButtonProps): JSX.Element {
   return (
     <button
       className={classNames(BS_ROOT, `${BS_ROOT}-${variant}`)}
-      style={{ cursor: disabled ? 'not-allowed' : undefined }}
       disabled={disabled}
       onClick={onClick}
       type={type}

@@ -98,7 +98,6 @@ describe('Button', () => {
       const button = getByRole('button');
 
       expect(button).toBeDisabled();
-      expect(button).toHaveStyle({ cursor: 'not-allowed' });
     });
 
     test('guard it does not render disabled if not supplied', () => {
@@ -107,7 +106,6 @@ describe('Button', () => {
       const button = getByRole('button');
 
       expect(button).toBeEnabled();
-      expect(button).not.toHaveStyle({ cursor: 'not-allowed' });
     });
   });
 });
