@@ -5,7 +5,7 @@ import Button from './components/Button';
 
 function App(): JSX.Element {
   return (
-    <>
+    <div className="container">
       <Alert variant="warning" dismissible>
         <strong>Holy guacamole!</strong> You should check in on some of those
         fields below.
@@ -18,7 +18,7 @@ function App(): JSX.Element {
       >
         Push me
       </Button>
-    </>
+    </div>
   );
 }
 
