@@ -8,6 +8,8 @@ import Button, { ButtonProps } from './Button';
 
 describe('Button', () => {
   function render({
+    "aria-label": ariaLabel = undefined,
+    children = 'Push me',
     type = 'submit',
     variant = 'primary',
     onClick = undefined,
@@ -15,12 +17,13 @@ describe('Button', () => {
   }: Partial<ButtonProps> = {}): RenderResult {
     return renderRtl(
       <Button
+        aria-label={ariaLabel}
         disabled={disabled}
         onClick={onClick}
         type={type}
         variant={variant}
       >
-        Push me
+        {children}
       </Button>
     );
   }
@@ -107,5 +110,14 @@ describe('Button', () => {
 
       expect(button).toBeEnabled();
     });
+  });
+
+  test('it renders with an aria label if supplied', () => {
+    const ariaLabel = 'Close';
+
+    const { getByRole} = render({ children: 'x', 'aria-label': ariaLabel });
+
+    const button = getByRole('button');
+    expect(button).toHaveAttribute('aria-label', ariaLabel);
   });
 });

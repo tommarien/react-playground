@@ -8,7 +8,7 @@ export type ButtonProps = Pick<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   >,
-  'onClick' | 'disabled' | 'children'
+  'onClick' | 'disabled' | 'children' | 'aria-label'
 > & {
   type: 'button' | 'submit' | 'reset';
   variant: Variant | 'link';
@@ -17,10 +17,18 @@ export type ButtonProps = Pick<
 const BS_ROOT = 'btn';
 
 function Button(props: ButtonProps): JSX.Element {
-  const { children, disabled, onClick, type, variant } = props;
+  const {
+    'aria-label': ariaLabel,
+    children,
+    disabled,
+    onClick,
+    type,
+    variant,
+  } = props;
 
   return (
     <button
+      aria-label={ariaLabel}
       className={classNames(BS_ROOT, `${BS_ROOT}-${variant}`)}
       disabled={disabled}
       onClick={onClick}
