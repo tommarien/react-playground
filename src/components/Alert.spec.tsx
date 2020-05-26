@@ -19,14 +19,13 @@ describe('Alert', () => {
   }
 
   test('it renders by default', () => {
-    const { container } = render({
+    const { getByRole } = render({
       children: <div data-testid="child" />,
     });
 
-    const alert = container.firstElementChild as HTMLElement;
+    const alert = getByRole('alert');
 
     expect(alert).toHaveProperty('tagName', 'DIV');
-    expect(alert).toHaveAttribute('role', 'alert');
     expect(alert).toHaveClass('alert', 'alert-primary');
 
     expect(alert).not.toHaveClass('alert-dismissible');
