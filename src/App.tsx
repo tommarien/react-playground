@@ -2,6 +2,7 @@ import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import Alert from './components/Alert';
 import Button from './components/Button';
+import Badge from './components/Badge';
 
 function App(): JSX.Element {
   return (
@@ -18,6 +19,10 @@ function App(): JSX.Element {
       >
         Push me
       </Button>
+
+      <Badge variant="success">
+        15 messages
+      </Badge>
     </div>
   );
 }
