@@ -2,18 +2,15 @@ import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import { Variant } from './Bootstrap';
 
-const defaultProps = {
-  pill: false,
-};
-
 export type BadgeProps = {
   children: ReactNode;
   variant: Variant;
-} & typeof defaultProps;
+  pill?: boolean;
+};
 
 const BS_ROOT = 'badge';
 
-function Badge({ children, variant, pill }: BadgeProps): JSX.Element {
+function Badge({ children, variant, pill = false }: BadgeProps): JSX.Element {
   return (
     <span
       className={classNames(BS_ROOT, `${BS_ROOT}-${variant}`, {
@@ -24,7 +21,5 @@ function Badge({ children, variant, pill }: BadgeProps): JSX.Element {
     </span>
   );
 }
-
-Badge.defaultProps = defaultProps;
 
 export default Badge;
