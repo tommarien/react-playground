@@ -9,7 +9,7 @@ export type AlertProps = {
   variant: Variant;
 };
 
-const BS_ROOT = 'alert';
+const ALERT_ROOT = 'alert';
 
 function Alert({
   children,
@@ -21,13 +21,13 @@ function Alert({
 
   return (
     <div
-      className={classNames(BS_ROOT, `${BS_ROOT}-${variant}`, {
-        [`${BS_ROOT}-dismissible`]: dismissible,
+      className={classNames(ALERT_ROOT, `${ALERT_ROOT}-${variant}`, {
+        [`${ALERT_ROOT}-dismissible`]: dismissible,
       })}
       style={{ display: dismissed ? 'none' : undefined }}
       role="alert"
     >
-      {heading && <h4 className={`${BS_ROOT}-heading`}>{heading}</h4>}
+      {heading && <h4 className={`${ALERT_ROOT}-heading`}>{heading}</h4>}
       {children}
       {dismissible && (
         <button
