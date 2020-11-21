@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const packageJson = require('./package.json');
 
 module.exports = (env, args) => {
@@ -22,7 +23,7 @@ module.exports = (env, args) => {
       hot: true, // enable hot module replacement
     },
     devtool: devMode ? 'cheap-module-source-map' : 'source-map',
-    entry: ['react-hot-loader/patch', path.resolve(paths.SRC, 'index.tsx')],
+    entry: path.resolve(paths.SRC, 'index.tsx'),
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
@@ -43,13 +44,19 @@ module.exports = (env, args) => {
         filename: devMode ? 'static/css/[name].css' : 'static/css/[name].[contenthash].css',
         chunkFilename: devMode ? 'static/css/[id].css' : 'static/css/[name].[contenthash].chunk.css',
       }),
-    ],
+      devMode && new ReactRefreshWebpackPlugin(),
+    ].filter(Boolean),
     module: {
       rules: [
         {
           test: /\.(js|jsx|tsx|ts)$/, // apply babel-loader for any js file
           loader: 'babel-loader',
           exclude: /node_modules/, // except in node_modules
+          options: {
+            plugins: [
+              // ... other plugins
+            ].filter(Boolean),
+          },
         },
         {
           test: /\.(png|jpg|gif|woff|woff2|eot|svg|ttf|ico|pdf)$/,

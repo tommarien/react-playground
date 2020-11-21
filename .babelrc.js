@@ -11,5 +11,5 @@ module.exports = {
     '@babel/typescript',
     '@babel/preset-react',
   ],
-  plugins: ['react-hot-loader/babel', '@babel/plugin-transform-runtime'],
+  plugins: ['@babel/plugin-transform-runtime'],
 };

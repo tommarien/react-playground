@@ -1,4 +1,3 @@
-import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import Alert from './components/Alert';
 import Button from './components/Button';
@@ -27,4 +26,4 @@ function App(): JSX.Element {
   );
 }
 
-export default hot(App);
+export default App;

@@ -15,6 +15,7 @@
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
     "@babel/preset-typescript": "^7.12.7",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@types/classnames": "^2.2.11",
@@ -47,6 +48,7 @@
     "nock": "^13.0.5",
     "node-sass": "^5.0.0",
     "prettier": "^2.2.0",
+    "react-refresh": "^0.9.0",
     "rifraf": "^2.0.3",
     "sass-loader": "^10.1.0",
     "typescript": "^4.1.2",
@@ -70,8 +72,7 @@
     "bootstrap-scss": "^4.5.3",
     "classnames": "^2.2.6",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-hot-loader": "^4.13.0"
+    "react-dom": "^17.0.1"
   },
   "husky": {
     "hooks": {
