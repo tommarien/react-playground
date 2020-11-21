@@ -28,7 +28,6 @@
     "clean-webpack-plugin": "^3.0.0",
     "core-js": "^3.7.0",
     "css-loader": "^5.0.1",
-    "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.14.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.0.0",
@@ -76,8 +75,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsc --noEmit && lint-staged",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "pre-commit": "tsc --noEmit && lint-staged"
     }
   },
   "lint-staged": {
