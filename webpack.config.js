@@ -1,4 +1,5 @@
 const path = require('path');
+const { HotModuleReplacementPlugin } = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -44,6 +45,7 @@ module.exports = (env, args) => {
         filename: devMode ? 'static/css/[name].css' : 'static/css/[name].[contenthash].css',
         chunkFilename: devMode ? 'static/css/[id].css' : 'static/css/[name].[contenthash].chunk.css',
       }),
+      devMode && new HotModuleReplacementPlugin(),
       devMode && new ReactRefreshWebpackPlugin(),
     ].filter(Boolean),
     module: {
