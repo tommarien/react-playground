@@ -1,4 +1,3 @@
-import React from 'react';
 import Alert from './components/Alert';
 import Button from './components/Button';
 import Badge from './components/Badge';

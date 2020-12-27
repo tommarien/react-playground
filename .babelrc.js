@@ -9,7 +9,9 @@ module.exports = {
       },
     ],
     '@babel/typescript',
-    '@babel/preset-react',
+    ["@babel/preset-react", {
+      "runtime": "automatic"
+    }]
   ],
   plugins: ['@babel/plugin-transform-runtime'],
 };

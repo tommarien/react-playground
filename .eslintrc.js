@@ -35,5 +35,7 @@ module.exports = {
       'error',
       { functions: false, classes: true, variables: true, typedefs: true },
     ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   },
 };

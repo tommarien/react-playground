@@ -1,4 +1,3 @@
-import React from 'react';
 import { render as renderRtl, RenderResult } from '@testing-library/react';
 import Badge, { BadgeProps } from './Badge';
 
