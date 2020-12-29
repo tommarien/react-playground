@@ -1,25 +1,18 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Badge, { BadgeProps } from '../components/Badge';
+import Component, { BadgeProps } from '../components/Badge';
 
 export default {
   title: 'Playground/Badge',
-  component: Badge,
+  component: Component,
 } as Meta;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: Story<BadgeProps> = (args) => <Badge {...args} />;
+const Template: Story<BadgeProps> = (args) => <Component {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Badge = Template.bind({});
+Badge.args = {
   children: 'Badge',
   variant: 'primary',
-};
-
-export const Pill = Template.bind({});
-Pill.args = {
-  children: 'Pill',
-  variant: 'secondary',
-  pill: true,
 };
